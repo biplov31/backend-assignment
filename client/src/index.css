@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+nav ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: space-evenly;
+  list-style: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  width: 60%;
+  margin: 2rem auto;
+}
+form input {
+  padding: .4rem;
+}
+button {
+  padding: .4rem;
+  cursor: pointer;
+}
