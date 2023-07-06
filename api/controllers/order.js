@@ -21,6 +21,7 @@ export const createOrder = async (req, res) => {
 
 export const getOrders = async (req, res) => {
   try {
+    // Raw MySQL query to join order and product tables, and populate necessary data including the total cost
     const orders = await prisma.$queryRaw`
       SELECT o.user_id, p.product_name, p.price, o.quantity, p.price * o.quantity as total_cost
       FROM 
