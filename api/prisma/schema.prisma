@@ -30,6 +30,7 @@ model Order {
   order_id Int @default(autoincrement()) @id
   user_id Int
   product_id Int
+  quantity Int
   user User @relation(fields: [user_id], references: [user_id])
   product Product @relation(fields: [product_id], references: [product_id])
 }

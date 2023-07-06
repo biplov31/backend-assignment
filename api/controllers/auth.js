@@ -19,7 +19,7 @@ export const registerUser = async (req, res) => {
     const token_value = jwt.sign({email, id: user.user_id}, process.env.JWT_SECRET)
     res.cookie('access_token', token_value, {sameSite: 'none', secure: true}).json({id: user.user_id, username})
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json("Error registering user: " + err);
   }
 }
 

@@ -5,6 +5,8 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 // import db from './config/database.js';
 import authRoutes from './routes/auth.js';
+import productRoutes from './routes/product.js';
+import orderRoutes from './routes/order.js';
 
 const app = express();
 dotenv.config();
@@ -12,10 +14,12 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://127.0.0.1:5173'}));
 app.use(cookieParser());
 
 app.use('/', authRoutes);
+app.use('/product', productRoutes);
+app.use('/order', orderRoutes);
 
 // app.get('/createtable', (req, res) => {
 //   let sql = 'CREATE TABLE users (user_id int primary key auto_increment, username varchar(50) not null, email varchar(100) unique not null, password varchar(100) not null)';
