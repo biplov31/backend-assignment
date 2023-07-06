@@ -16,9 +16,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({credentials: true, origin: 'http://127.0.0.1:5173'}));
 app.use(cookieParser());
 
+// user registration and login
 app.use('/', authRoutes);
+
+// create, update, retrieve and delete products
 app.use('/product', productRoutes);
+
+// create, update, retrieve and delete orders
 app.use('/order', orderRoutes);
+
+// generate daily, weekly and monthly sales reports along with finding top-selling products
 app.use('/report', salesRoutes)
 
 app.listen(port, () => {
